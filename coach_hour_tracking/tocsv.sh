@@ -19,3 +19,4 @@ for i in *.xlsx;
       echo $z
       ssconvert "$i" "$z".csv ; 
    done
+

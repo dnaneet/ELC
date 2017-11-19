@@ -44,7 +44,7 @@ plot(costActThisWk, 'b ^', 'markersize', marker_size);
 hold on;
 y = mean(costActThisWk);
 line([0,weekNumber+1],[y,y], 'color', 'k', 'linewidth', 2,'LineStyle','-.')
-plot(costExpThisWk, 'r O', 'markersize', marker_size);
+plot(costExpThisWk, 'r o', 'markersize', marker_size);
 ylabel('Cost ($)', 'fontsize', 16)
 xlabel('Week number', 'fontsize', 16)
 title('Actual vs Expected cost')
@@ -71,7 +71,7 @@ set(gca, 'FontSize', 16)
 subplot(2,2,4)
 plot(costAct_cumulative, 'b ^', 'markersize', marker_size);
 hold on;
-plot(costExp_cumulative, 'r O', 'markersize', marker_size);
+plot(costExp_cumulative, 'r o', 'markersize', marker_size);
 ylabel('Cost ($)', 'fontsize', 16)
 xlabel('Week number', 'fontsize', 16)
 title('Actual vs Expected cost (cumulative)')

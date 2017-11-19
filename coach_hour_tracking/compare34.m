@@ -5,21 +5,20 @@
 %Version 3.4                                       %
 %Date: 11/17/2017                                   %
 %""""""""""""""""""""""""""""""""""""""""""""""""""%
-function [nHoursActualThisWeek,nHoursExpectedThisWeek, costExpectedThisWeek, costThisWeek] = ELC(weekNumber)
+function [nHoursActualThisWeek,nHoursExpectedThisWeek, costExpectedThisWeek, costThisWeek] = compare34(weekNumber)
 %% Initialization cell
 f=dir('./*.csv'); %Imports all csv files in current folder into workspace
 nCoach=numel(f);
 for i=1:1:nCoach
-    data{i}=importfile(f(i).name); %Cell array that holds
+    data{i}=csvread(f(i).name); %Cell array that holds
     %the data (expected vs actual for each week) of all coaches.
 end
 temp=1;
 %% Calculation/processing cell
-rng=1:8; %range. Did not use in ver 1.0.
-         %Monday-Saturday + Review + Total in individual excel sheets
+rng=11;
 for i=1:1:nCoach
-    expected{weekNumber,i} = data{i}(8,2*weekNumber);
-    actual{weekNumber,i} = data{i}(8,2*weekNumber+1);
+    expected{weekNumber,i} = data{i}(11,2*weekNumber);
+    actual{weekNumber,i} = data{i}(11,2*weekNumber+1);
     error{weekNumber,i} = expected{weekNumber,i} - actual{weekNumber,i};
 end
 
@@ -65,6 +64,7 @@ for j=1:1:nCoach
 end
 
 %%Expected total hours all weeks and actual total hours all weeks.
+temp=3.5
 
 for j=1:1:nCoach
     nHoursExpectedAllWeeks=nHoursExpectedAllWeeks + expected{weekNumber,j};

@@ -3,7 +3,6 @@
 
 
 # trap ctrl-c and call ctrl_c()
-#trap ctrl_c INT
 
 #function ctrl_c() {
 #        echo "** Trapped CTRL-C0"
@@ -69,13 +68,13 @@ echo_c "***************************************************"
 
 #The following lines of code display user input options for different subject-help offered at the ELC
 echo_c ""
-echo_c "--------------------"
-echo_c "Time of last entry"  
-echo_c $(date +"%H:%M")
-echo_c "--------------------"
-echo_c "Date of last entry"
-echo_c $(date +"%b-%d-%y")
-echo_c "--------------------"
+#echo_c "--------------------"
+#echo_c "Time of last entry"  
+#echo_c $(date +"%H:%M")
+#echo_c "--------------------"
+#echo_c "Date of last entry"
+#echo_c $(date +"%b-%d-%y")
+#echo_c "--------------------"
 echo_c ""
 echo_c "For Statics (MEEM 2110), enter 1"
 echo_c "For Mechanics of materials (MEEM 2150), enter 2"
@@ -83,7 +82,11 @@ echo_c "For Thermodynamics/ETF-1 (MEEM 2201), enter 3"
 echo_c "For Dynamics (MEEM 2700), enter 4"
 echo_c "For MATLAB help, enter 5"
 echo_c "For study space, enter 6"
+echo_c " "
+echo_c "'''''''''''''''''''''''''''"
 echo_c "To leave feedback, enter 7"
+echo_c "'''''''''''''''''''''''''''"
+echo_c " "
 echo_c "To know more about this" 
 echo_c "data collection program/device, enter 8"
 echo_c "........................."
@@ -127,13 +130,12 @@ fi
 		        sleep 5s
 		        ./user_input.sh
 	  elif [ "$REPLY" = "4263" ]; then
-	        echo_c "Lunar lander game will launch"
+	        echo_c "In a future version, 'Lunar lander' game will launch"
 		        sleep 5s
-		        ./lander02.m
-		        sleep 2s		        
+		        #./lander02.m
+		        #sleep 2s		        
           elif [ "$REPLY" = "8" ]; then
-                 echo_c "A new page with info on this data collection module will load shortly"		  
-                 sleep 7s
+                 echo_c "A new page with info on this data collection module will load shortly"		             sleep 7s
 		  ./info.sh
 	         sleep 2s
 	  else

@@ -1,22 +1,25 @@
 #!/bin/bash
-#Main file that runs data collection code 15.sh in an infinite loop
+#Main file that runs data collection code 23.sh in an infinite loop
+
+stty intr ^g
 
 function ctrl_c() {
         clear
 	echo "** Trapped CTRL-C0"
-	sleep 1s
+	
 	echo "'''''''''''''''''''''''''''''''''''''''"
         echo "Enter Admin password and click [ENTER]: "
-        read passPhrase
+        read -s passPhrase
+	#trap "exit" SIGINT SIGTERM
         if [ $passPhrase == "Suvicat" ]; then
-                echo "Suvi! It's you!"
+                echo "Password valid.  Program will end in 5 seconds."
                 for i in `seq 1 5`; do
                     sleep 1
-                    echo -n "."
+                    echo -n "*."
                     #pkill 23.sh
                     #pkill main.sh
                 done
-	  	pkill main.sh
+	  	pkill main2.sh
         else
                 echo "Incorrect pass phrase.  'Service Selection' screen will in 5 seconds load"
 		for i in `seq 1 5`; do

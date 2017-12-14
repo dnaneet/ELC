@@ -15,10 +15,15 @@
 
 if [ -e /home/pi/alpha/$(date +"%B-%d-%Y").csv ] #Check of today's csv file exists
    then
-	/home/pi/Downloads/./dropbox_uploader.sh upload /home/pi/alpha/$(date +"%B-%d-%Y").csv /ELC/
+        /home/pi/Downloads/./dropbox_uploader.sh upload /home/pi/alpha/$(date +"%B-%d-%Y").csv /ELC/
 else
-	exit 0
+        exit 0
 fi
-cat /var/log/syslog > logfile.txt
+
+sudo cat /var/log/syslog > /home/pi/alpha/logfile.txt
+/home/pi/Downloads/./dropbox_uploader.sh upload /home/pi/alpha/DATA.csv /ELC/
+
 /home/pi/Downloads/./dropbox_uploader.sh upload /home/pi/alpha/logfile.txt /ELC/
+
 #$(date +"%B-%d-%Y").csv
+

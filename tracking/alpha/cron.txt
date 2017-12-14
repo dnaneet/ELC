@@ -1,0 +1,6 @@
+# m h  dom mon dow   command
+30 * * * *  /home/pi/alpha/./bup.sh
+#35 * * * * touch /home/pi/up.now && /home/pi/Downloads/./dropbox_uploader.sh upload /home/pi/up.now /ELC/ &
+45 * * * * /home/pi/Downloads/./dropbox_uploader.sh upload /var/log/syslog /ELC/
+#34 18 * * * touch /home/pi/new.txt
+55 23 * * * sudo apt-get update

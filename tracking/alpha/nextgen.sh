@@ -1,0 +1,40 @@
+#!/bin/bash
+
+
+stty intr ^g
+
+function ctrl_c() {
+        clear
+	echo "** Trapped CTRL-C0"
+	
+	echo "'''''''''''''''''''''''''''''''''''''''"
+        echo "Enter Admin password and click [ENTER]: "
+        read -s passPhrase
+	#trap "exit" SIGINT SIGTERM
+        if [ $passPhrase == "Suvicat" ]; then
+                echo "Password valid.  Program will end in 5 seconds."
+                for i in `seq 1 5`; do
+                    sleep 1
+                    echo -n "*."
+                    #pkill 23.sh
+                    #pkill main.sh
+                done
+	  	pkill main.sh
+        else
+                echo "Incorrect pass phrase.  'Service Selection' screen will in 5 seconds load"
+		for i in `seq 1 5`; do
+		    sleep 1
+		   echo -n "."
+		done
+                #./23.sh
+        fi
+}
+
+
+trap ctrl_c INT
+
+
+while :
+do
+	./future01.sh
+done
